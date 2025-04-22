@@ -37,6 +37,8 @@ DB_PASSWORD=XGHNbPlETOYsCGhxymjHVeJmVaTZdtiZ
 DB_NAME=railway
 ```
 
+4. Inicie o projeto:
+
 ```bash
 npm start
 ```
@@ -119,3 +121,6 @@ curl -X DELETE http://localhost:3005/reviews/7
 ```
 
 ---
+
+### Desenvolvido por
+**Heloysa Santos**
