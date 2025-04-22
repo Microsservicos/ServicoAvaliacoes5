@@ -51,7 +51,6 @@ npm start
 
 
 **Endpoint:** `GET /reviews?restaurant_id=1`
-**Retorna todas as avaliações relacionadas ao restaurante com ID 1.** 
 
 #### curl
 ```bash
