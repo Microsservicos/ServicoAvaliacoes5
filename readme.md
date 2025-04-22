@@ -37,6 +37,9 @@ DB_PASSWORD=XGHNbPlETOYsCGhxymjHVeJmVaTZdtiZ
 DB_NAME=railway
 ```
 
+```bash
+npm start
+```
 
 ---
 
@@ -46,17 +49,33 @@ DB_NAME=railway
 
 
 **Endpoint:** `GET /reviews?restaurant_id=1`
+**Retorna todas as avaliações relacionadas ao restaurante com ID 1.** 
 
 #### curl
 ```bash
 curl -X GET "http://localhost:3005/reviews?restaurant_id=1"
 ```
 
-#### fetch
-```js
-fetch("http://localhost:3005/reviews?restaurant_id=1")
-  .then(res => res.json())
-  .then(data => console.log(data));
+### Resposta
+``` 
+[
+  {
+    "id": 3,
+    "order_id": 14,
+    "user_id": 1,
+    "restaurant_id": 1,
+    "rating": 4,
+    "comment": "Pedido recebido no tempo previsto ok. Teve um dos produtos que já estava um pouco passado. De resto tudo Ok!"
+  },
+  {
+    "id": 4,
+    "order_id": 3,
+    "user_id": 3,
+    "restaurant_id": 1,
+    "rating": 5,
+    "comment": "Muito gostoso e bem servido vou pedir mais vezes, desejo sucesso para a equipe"
+  }
+]
 ```
 
 ---
@@ -65,26 +84,22 @@ fetch("http://localhost:3005/reviews?restaurant_id=1")
 
 **Endpoint:** `POST /reviews`
 
-**Corpo esperado:**
-```json
-{
-  "order_id": 123,
-  "user_id": 45,
-  "restaurant_id": 1,
-  "rating": 4,
-  "comment": "Entrega rápida e comida excelente!"
-}
-```
-
 #### curl
 ```bash
-curl -X POST http://localhost:3005/reviews   -H "Content-Type: application/json"   -d '{
-    "order_id": 123,
-    "user_id": 45,
-    "restaurant_id": 1,
+curl -X POST http://localhost:3005/reviews \
+  -H "Content-Type: application/json" \
+  -d '{
+    "order_id": 18,
+    "user_id": 6,
+    "restaurant_id": 4,
     "rating": 4,
     "comment": "Entrega rápida e comida excelente!"
   }'
+```
+
+### Resposta
+```
+{"message":"Avaliação criada com sucesso!"}
 ```
 
 ---
@@ -98,11 +113,9 @@ curl -X POST http://localhost:3005/reviews   -H "Content-Type: application/json"
 curl -X DELETE http://localhost:3005/reviews/7
 ```
 
-#### fetch
-```js
-fetch("http://localhost:3005/reviews/7", {
-  method: "DELETE"
-}).then(res => res.json()).then(data => console.log(data));
+#### Resposta
+```
+{"message":"Review deletada com sucesso."}
 ```
 
 ---
